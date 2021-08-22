@@ -7,6 +7,7 @@ export const header = {
   github: "https://github.com/syfxlin",
   rss: "https://blog.ixk.me/rss.xml",
   guestbook: "https://blog.ixk.me/message-board",
+  ga: "UA-118354380-1",
 };
 
 export const home = {
