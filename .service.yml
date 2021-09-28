@@ -1,9 +1,9 @@
-type: node
+buildpacks:
+  - nodejs
+  - nginx
 nodejs:
-  env: web
   run:
-    - yarn install --frozen-lockfile
-    - yarn build
+    - RUN yarn build
 nginx:
   root: out
   error_page:
