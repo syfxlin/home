@@ -1,18 +1,22 @@
-name: GitHub Pages Build and Deploy
-on: [push, pull_request, repository_dispatch]
+name: Next Deploy
+on:
+  push:
+    branches:
+      - master
+  workflow_dispatch:
 jobs:
   deploy:
+    env:
+      TZ: Asia/Shanghai
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@master
-      - name: Build
-        run: yarn && CI='' yarn build
-      - name: Deploy
-        uses: peaceiris/actions-gh-pages@v3
+        uses: actions/checkout@v2
         with:
-          personal_token: ${{ secrets.ACCESS_TOKEN }}
-          publish_dir: ./out
-          cname: ixk.me
-          enable_jekyll: false
-          force_orphan: true
+          fetch-depth: 0
+      - name: Push to dokku
+        uses: dokku/github-action@master
+        with:
+          git_push_flags: "--force"
+          git_remote_url: "ssh://dokku@ixk.me/home"
+          ssh_private_key: ${{ secrets.DOKKU_PRIVATE_KEY }}
