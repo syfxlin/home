@@ -1,9 +1,4 @@
-buildpacks:
-  - nodejs
-  - nginx
-nodejs:
-  run:
-    - RUN yarn build
+buildpack: nodejs-static
 nginx:
   root: out
   error_page:

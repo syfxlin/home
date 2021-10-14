@@ -35,3 +35,5 @@ yarn-error.log*
 
 **/public/workbox-*.js*
 **/public/serviceworker.js*
+
+.idea
