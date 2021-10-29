@@ -1,0 +1,40 @@
+{
+  "main": [
+    {
+      "title": "Blog",
+      "url": "https://blog.ixk.me",
+      "icon": "/img/notebook-one.svg",
+      "full": true
+    },
+    {
+      "title": "About",
+      "url": "https://blog.ixk.me/about",
+      "icon": "/img/user.svg",
+      "full": true
+    },
+    {
+      "title": "Projects",
+      "url": "https://github.com/syfxlin?tab=repositories",
+      "icon": "/img/star.svg",
+      "full": true
+    },
+    {
+      "title": "Github",
+      "url": "https://github.com/syfxlin",
+      "icon": "/img/github-one.svg",
+      "full": false
+    },
+    {
+      "icon": "/img/rss.svg",
+      "title": "RSS",
+      "url": "https://blog.ixk.me/rss.xml",
+      "full": false
+    },
+    {
+      "icon": "/img/comments.svg",
+      "title": "Guestbook",
+      "url": "https://blog.ixk.me/message-board",
+      "full": false
+    }
+  ]
+}

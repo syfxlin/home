@@ -1,13 +1,15 @@
 import React from "react";
 import Highlight, { defaultProps, Language } from "prism-react-renderer";
 import theme from "prism-react-renderer/themes/duotoneLight";
-import { chakra } from "@chakra-ui/react";
+import { css } from "@emotion/react";
+import { useTh } from "../theme/hooks/use-th";
 
 type Props = {
   className: string;
 };
 
 const CodeBlock: React.FC<Props> = ({ children, className }) => {
+  const th = useTh();
   const language = (className || "language-markup").replace("language-", "");
   return (
     <Highlight
@@ -17,7 +19,15 @@ const CodeBlock: React.FC<Props> = ({ children, className }) => {
       theme={theme}
     >
       {({ className, style, tokens, getLineProps, getTokenProps }) => (
-        <chakra.pre py={2} px={3} className={className} style={style}>
+        <pre
+          className={className}
+          style={style}
+          css={css`
+            padding: ${th.spacing(["minor", 4])};
+            overflow-x: auto;
+            font-size: ${th.fontSize("sm")};
+          `}
+        >
           {tokens.map(
             (line, i) =>
               i < tokens.length - 1 && (
@@ -29,7 +39,7 @@ const CodeBlock: React.FC<Props> = ({ children, className }) => {
                 </div>
               )
           )}
-        </chakra.pre>
+        </pre>
       )}
     </Highlight>
   );

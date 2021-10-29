@@ -1,8 +1,10 @@
-const withMDX = require("@next/mdx")();
-const withNextPluginPreval = require("next-plugin-preval/config")();
+const withMdx = require("@next/mdx")({
+  extensions: /\.mdx?$/,
+});
 const withPWA = require("next-pwa");
+
 /** @type {import('next').NextConfig} */
-const nextConfig = {
+const config = {
   reactStrictMode: true,
   pageExtensions: ["tsx", "ts", "jsx", "js", "mdx", "md"],
   pwa: {
@@ -10,4 +12,5 @@ const nextConfig = {
     dest: "public",
   },
 };
-module.exports = withNextPluginPreval(withMDX(withPWA(nextConfig)));
+
+module.exports = withMdx(withPWA(config));
