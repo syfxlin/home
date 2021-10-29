@@ -1,109 +1,44 @@
 import React from "react";
-import {
-  Button,
-  HStack,
-  IconButton,
-  useBreakpointValue,
-} from "@chakra-ui/react";
-import {
-  Comments,
-  GithubOne,
-  Home,
-  NotebookOne,
-  Rss,
-  Star,
-  User,
-} from "@icon-park/react";
-import Link from "next/link";
 import { useRouter } from "next/router";
-import { header, home } from "../../config";
-import Head from "next/head";
+import Link from "./Link";
+import nav from "../../content/settings/nav.json";
+import { useTh } from "../theme/hooks/use-th";
+import { css } from "@emotion/react";
 
-const Header: React.FC = ({ children }) => {
+const Header: React.FC = () => {
   const router = useRouter();
+  const th = useTh();
   return (
-    <>
-      <Head>
-        {children}
-        <link rel="shortcut icon" href={home.avatar} />
-        <link rel="bookmark" type="image/x-icon" href={home.avatar} />
-      </Head>
-      <HStack justify="flex-end" align="center" py={4} spacing={1}>
-        {router.pathname !== "" && router.pathname !== "/" && (
-          <RButton
-            label="Home"
-            href="/"
-            icon={<Home theme="outline" size="1.15rem" />}
-          />
-        )}
-        <RButton
-          label="Blog"
-          href={header.blog}
-          icon={<NotebookOne theme="outline" size="1.15rem" />}
-        />
-        <RButton
-          label="About"
-          href={header.about}
-          icon={<User theme="outline" size="1.15rem" />}
-        />
-        <RButton
-          label="Projects"
-          href={header.projects}
-          icon={<Star theme="outline" size="1.15rem" />}
-        />
-        <RButton
-          label="Github"
-          href={header.github}
-          icon={<GithubOne theme="outline" size="1.15rem" />}
-          alwaysIcon
-        />
-        <RButton
-          label="RSS"
-          href={header.rss}
-          icon={<Rss theme="outline" size="1.15rem" />}
-          alwaysIcon
-        />
-        <RButton
-          label="Guestbook"
-          href={header.guestbook}
-          icon={<Comments theme="outline" size="1.15rem" />}
-          alwaysIcon
-        />
-      </HStack>
-    </>
-  );
-};
+    <header
+      css={css`
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        padding-top: ${th.spacing(["minor", 4])};
+        padding-bottom: ${th.spacing(["minor", 4])};
 
-type RButtonProps = {
-  icon?: React.ReactElement;
-  alwaysIcon?: boolean | undefined;
-  label: string;
-  href: string;
-};
+        > a {
+          &:first-child {
+            margin-left: 0;
+          }
 
-const RButton: React.FC<RButtonProps> = ({ label, href, icon, alwaysIcon }) => {
-  const mobile = useBreakpointValue({ base: true, md: false });
-  const innerLink = href.startsWith("/");
-  const Root = innerLink ? Link : React.Fragment;
-  return (
-    // @ts-ignore
-    <Root {...(innerLink ? { href } : {})}>
-      {alwaysIcon || (icon && mobile) ? (
-        <IconButton
-          as="a"
-          title={label}
-          aria-label={label}
-          variant="ghost"
-          size="sm"
-          icon={icon}
-          href={href}
-        />
-      ) : (
-        <Button as="a" variant="ghost" size="sm" href={href}>
-          {label}
-        </Button>
+          margin-left: ${th.spacing(["minor", 0.5])};
+        }
+      `}
+    >
+      {router.asPath !== "" && router.asPath !== "/" && (
+        <Link href="/" label="Home" icon="/img/home.svg" full />
       )}
-    </Root>
+      {nav.main.map((item) => (
+        <Link
+          key={item.url}
+          label={item.title}
+          icon={item.icon}
+          href={item.url}
+          full={item.full}
+        />
+      ))}
+    </header>
   );
 };
 

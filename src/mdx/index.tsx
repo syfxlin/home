@@ -1,65 +1,199 @@
-import React, { ComponentType, forwardRef, ReactNode } from "react";
-import {
-  Alert,
-  Box,
-  chakra,
-  Code,
-  Kbd,
-  Link,
-  Table,
-  Td,
-  Th,
-  Tr,
-} from "@chakra-ui/react";
-import { MDXProviderComponents } from "@mdx-js/react";
+/* eslint-disable react-hooks/rules-of-hooks */
+import React, { forwardRef } from "react";
+import { css } from "@emotion/react";
+import { useTh } from "../theme/hooks/use-th";
 import CodeBlock from "./CodeBlock";
+import Link from "next/link";
 
-const components: MDXProviderComponents & {
-  [tag: string]: ReactNode | ComponentType<any>;
-} = {
-  wrapper: (props) => <chakra.div {...props} apply="mdx.wrapper" />,
-  h1: (props) => <chakra.h1 {...props} apply="mdx.h1" />,
-  h2: (props) => <chakra.h2 {...props} apply="mdx.h2" />,
-  h3: (props) => <chakra.h3 {...props} apply="mdx.h3" />,
-  h4: (props) => <chakra.h4 {...props} apply="mdx.h4" />,
-  h5: (props) => <chakra.h5 {...props} apply="mdx.h5" />,
-  h6: (props) => <chakra.h6 {...props} apply="mdx.h6" />,
-  p: (props) => <chakra.p {...props} apply="mdx.p" />,
-  inlineCode: (props) => <Code {...props} apply="mdx.code" />,
-  hr: (props) => <chakra.hr {...props} apply="mdx.hr" />,
-  strong: (props) => <chakra.strong {...props} apply="mdx.strong" />,
-  pre: (props) => <chakra.div {...props} apply="mdx.pre" />,
-  kbd: (props) => <Kbd {...props} apply="mdx.kbd" />,
-  br: (props) => <Box as="br" {...props} apply="mdx.br" />,
-  code: CodeBlock,
-  table: (props) => <Table {...props} apply="mdx.table" />,
-  th: (props) => <Th {...props} apply="mdx.th" />,
-  tr: (props) => <Tr {...props} apply="mdx.tr" />,
-  td: (props) => <Td {...props} apply="mdx.td" />,
-  a: forwardRef(({ children, href }: any, ref: any) => {
-    const innerLink = href.startsWith("/");
+export const wrapper: React.FC = (props) => {
+  const th = useTh();
+  return (
+    <div
+      {...props}
+      css={css`
+        margin-top: ${th.spacing(["minor", 2])};
+        letter-spacing: ${th.letterSpacing("lg")};
+        color: #71717a;
+        font-size: 1.125rem;
+      `}
+    />
+  );
+};
+
+export const h1: React.FC = (props) => {
+  const th = useTh();
+  return (
+    <h1
+      {...props}
+      css={css`
+        color: ${th.color("black")};
+        font-weight: 600;
+      `}
+    />
+  );
+};
+
+export const h2: React.FC = (props) => {
+  const th = useTh();
+  return (
+    <h2
+      {...props}
+      css={css`
+        color: ${th.color("black")};
+        font-weight: 600;
+      `}
+    />
+  );
+};
+
+export const h3: React.FC = (props) => {
+  const th = useTh();
+  return (
+    <h3
+      {...props}
+      css={css`
+        color: ${th.color("black")};
+        font-weight: 600;
+      `}
+    />
+  );
+};
+
+export const h4: React.FC = (props) => {
+  const th = useTh();
+  return (
+    <h4
+      {...props}
+      css={css`
+        color: ${th.color("black")};
+        font-weight: 600;
+      `}
+    />
+  );
+};
+
+export const h5: React.FC = (props) => {
+  const th = useTh();
+  return (
+    <h5
+      {...props}
+      css={css`
+        color: ${th.color("black")};
+        font-weight: 600;
+      `}
+    />
+  );
+};
+
+export const h6: React.FC = (props) => {
+  const th = useTh();
+  return (
+    <h6
+      {...props}
+      css={css`
+        color: ${th.color("black")};
+        font-weight: 600;
+      `}
+    />
+  );
+};
+
+export const p: React.FC = (props) => {
+  const th = useTh();
+  return (
+    <p
+      {...props}
+      css={css`
+        margin: ${th.spacing(["minor", 4])} 0;
+
+        blockquote & {
+          margin-top: 0;
+        }
+      `}
+    />
+  );
+};
+
+export const inlineCode: React.FC = (props) => {
+  const th = useTh();
+  return (
+    <code
+      {...props}
+      css={css`
+        font-size: ${th.fontSize("sm")};
+        border-radius: ${th.radii("sm")};
+        white-space: nowrap;
+        color: ${th.color("red.7")};
+        background-color: ${th.color("red.0")};
+        padding: ${th.spacing(["minor", 0.5])} ${th.spacing(["minor", 1])};
+      `}
+    />
+  );
+};
+
+export const code = CodeBlock;
+
+export const a = forwardRef<HTMLAnchorElement, JSX.IntrinsicElements["a"]>(
+  (props, ref) => {
+    const th = useTh();
+    const innerLink = props.href?.startsWith("/");
     const Root = innerLink ? Link : React.Fragment;
     return (
       // @ts-ignore
-      <Root {...(innerLink ? { href } : {})}>
-        <chakra.a href={href} ref={ref} apply="mdx.a">
-          {children}
-        </chakra.a>
+      <Root {...(innerLink ? { href: props.href } : {})}>
+        <a
+          {...props}
+          ref={ref}
+          css={css`
+            transition: color 0.5s;
+            transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
+            position: relative;
+            color: ${th.color("primary.5")};
+            text-decoration: none;
+
+            &::before {
+              content: "";
+              position: absolute;
+              bottom: 0;
+              left: 0;
+              width: 100%;
+              height: 30%;
+              opacity: 0.2;
+              transform: scale3d(0, 1, 1);
+              transform-origin: 0 50%;
+              transition: transform 0.5s;
+              transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
+              background-color: ${th.color("primary.5")};
+            }
+
+            &:hover {
+              text-decoration: none;
+
+              &::before {
+                transform: scale3d(1, 1, 1);
+              }
+            }
+          `}
+        />
       </Root>
     );
-  }),
-  ul: (props) => <chakra.ul {...props} apply="mdx.ul" />,
-  ol: (props) => <chakra.ol {...props} apply="mdx.ol" />,
-  li: (props) => <chakra.li {...props} apply="mdx.li" />,
-  img: (props) => <chakra.img {...props} apply="mdx.img" />,
-  blockquote: (props) => (
-    <Alert
-      as="blockquote"
-      variant="left-accent"
+  }
+);
+
+export const ul: React.FC = (props) => {
+  const th = useTh();
+  return (
+    <ul
       {...props}
-      apply="mdx.blockquote"
+      css={css`
+        padding-left: ${th.spacing(["minor", 6])};
+
+        > li + li {
+          margin-top: ${th.spacing(["minor", 1])};
+        }
+      `}
     />
-  ),
+  );
 };
 
-export default components;
+export const ol = ul;

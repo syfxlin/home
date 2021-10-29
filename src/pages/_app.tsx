@@ -1,19 +1,33 @@
-import React from "react";
-import { ChakraProvider } from "@chakra-ui/react";
-import { MDXProvider } from "@mdx-js/react";
-import { AppProps } from "next/app";
+import type { AppProps } from "next/app";
+import { ThemeProvider } from "@emotion/react";
 import { theme } from "../theme";
-import components from "../mdx";
-import "../styles/global.css";
+import {
+  ColorSchemeConsumer,
+  ColorSchemeProvider,
+} from "../theme/ColorSchemeProvider";
+import React from "react";
+import GlobalStyles from "../theme/GlobalStyles";
+import NormalizeCSS from "../theme/NormalizeCSS";
 
-function App({ Component, pageProps }: AppProps) {
+const App: React.FC<AppProps> = ({ Component, pageProps }) => {
   return (
-    <ChakraProvider theme={theme}>
-      <MDXProvider components={components}>
-        <Component {...pageProps} />
-      </MDXProvider>
-    </ChakraProvider>
+    <ColorSchemeProvider>
+      <ColorSchemeConsumer>
+        {({ colorScheme }) => (
+          <ThemeProvider
+            theme={{
+              ...theme,
+              colorScheme,
+            }}
+          >
+            <NormalizeCSS />
+            <GlobalStyles />
+            <Component {...pageProps} />
+          </ThemeProvider>
+        )}
+      </ColorSchemeConsumer>
+    </ColorSchemeProvider>
   );
-}
+};
 
 export default App;
