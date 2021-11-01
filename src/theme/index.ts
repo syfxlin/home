@@ -17,7 +17,7 @@ import { borderWidths, radius } from "./foundations/borders";
 import { colors } from "./foundations/colors";
 
 export const theme: ThemeTokens = {
-  primaryColor: "blue",
+  primaryColor: "violet",
   animations,
   borderWidths,
   radius,
