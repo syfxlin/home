@@ -1,6 +1,13 @@
-import { CSSProperties, SizesRecord } from "../types";
+import { CSSProperties } from "../types";
 
-export type Shadows = SizesRecord<CSSProperties["boxShadow"]>;
+export type Shadows = {
+  xs: CSSProperties["boxShadow"];
+  sm: CSSProperties["boxShadow"];
+  md: CSSProperties["boxShadow"];
+  lg: CSSProperties["boxShadow"];
+  xl: CSSProperties["boxShadow"];
+  [key: string]: CSSProperties["boxShadow"];
+};
 
 export const shadows: Shadows = {
   xs: "0 1px 3px rgba(0, 0, 0, 0.05), 0 1px 2px rgba(0, 0, 0, 0.1)",

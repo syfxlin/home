@@ -5,10 +5,11 @@ import { getAllPages } from "../api/page";
 import layouts, { Layouts } from "../layouts";
 import Header from "../components/Header";
 import Head from "next/head";
-import author from "../../content/settings/author.json";
 import { useTh } from "../theme/hooks/use-th";
 import { css } from "@emotion/react";
 import Footer from "../components/Footer";
+import seo from "../../content/settings/seo.json";
+import author from "../../content/settings/author.json";
 
 export type PageProps = {
   page: {
@@ -27,7 +28,11 @@ const Page: NextPage<PageProps> = ({ page, ...props }) => {
   return (
     <>
       <Head>
-        <title>{page.title}</title>
+        <title>
+          {page.slug === "/" || page.slug === ""
+            ? seo.title
+            : `${page.title} | ${seo.title}`}
+        </title>
       </Head>
       <div
         css={css`
@@ -44,8 +49,8 @@ const Page: NextPage<PageProps> = ({ page, ...props }) => {
         <Header />
         <main
           css={css`
-            padding-top: ${th.spacing(["minor", 8])};
-            padding-bottom: ${th.spacing(["minor", 8])};
+            padding-top: ${th.spacing(8)};
+            padding-bottom: ${th.spacing(8)};
           `}
         >
           <img
@@ -59,7 +64,7 @@ const Page: NextPage<PageProps> = ({ page, ...props }) => {
           />
           <h1
             css={css`
-              margin-top: ${th.spacing(["minor", 4])};
+              margin-top: ${th.spacing(4)};
               margin-bottom: 0;
               font-weight: 500;
               font-family: "Comic Sans MS", serif;
@@ -69,7 +74,7 @@ const Page: NextPage<PageProps> = ({ page, ...props }) => {
           </h1>
           <p
             css={css`
-              margin-top: ${th.spacing(["minor", 1])};
+              margin-top: ${th.spacing(1)};
               color: ${th.color("gray.6")};
             `}
           >

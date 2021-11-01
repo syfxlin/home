@@ -14,15 +14,15 @@ const Header: React.FC = () => {
         display: flex;
         justify-content: flex-end;
         align-items: center;
-        padding-top: ${th.spacing(["minor", 4])};
-        padding-bottom: ${th.spacing(["minor", 4])};
+        padding-top: ${th.spacing(4)};
+        padding-bottom: ${th.spacing(4)};
 
         > a {
           &:first-child {
             margin-left: 0;
           }
 
-          margin-left: ${th.spacing(["minor", 0.5])};
+          margin-left: ${th.spacing(0.5)};
         }
       `}
     >

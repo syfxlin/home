@@ -25,7 +25,6 @@ export const baseColor = {
     "#343a40",
     "#212529",
   ],
-
   red: [
     "#fff5f5",
     "#ffe3e3",
@@ -38,7 +37,6 @@ export const baseColor = {
     "#e03131",
     "#c92a2a",
   ],
-
   pink: [
     "#fff0f6",
     "#ffdeeb",
@@ -51,7 +49,6 @@ export const baseColor = {
     "#c2255c",
     "#a61e4d",
   ],
-
   grape: [
     "#f8f0fc",
     "#f3d9fa",
@@ -64,7 +61,6 @@ export const baseColor = {
     "#9c36b5",
     "#862e9c",
   ],
-
   violet: [
     "#f3f0ff",
     "#e5dbff",
@@ -77,7 +73,6 @@ export const baseColor = {
     "#6741d9",
     "#5f3dc4",
   ],
-
   indigo: [
     "#edf2ff",
     "#dbe4ff",
@@ -90,7 +85,6 @@ export const baseColor = {
     "#3b5bdb",
     "#364fc7",
   ],
-
   blue: [
     "#e7f5ff",
     "#d0ebff",
@@ -103,7 +97,6 @@ export const baseColor = {
     "#1971c2",
     "#1864ab",
   ],
-
   cyan: [
     "#e3fafc",
     "#c5f6fa",
@@ -116,7 +109,6 @@ export const baseColor = {
     "#0c8599",
     "#0b7285",
   ],
-
   teal: [
     "#e6fcf5",
     "#c3fae8",
@@ -129,7 +121,6 @@ export const baseColor = {
     "#099268",
     "#087f5b",
   ],
-
   green: [
     "#ebfbee",
     "#d3f9d8",
@@ -142,7 +133,6 @@ export const baseColor = {
     "#2f9e44",
     "#2b8a3e",
   ],
-
   lime: [
     "#f4fce3",
     "#e9fac8",
@@ -155,7 +145,6 @@ export const baseColor = {
     "#66a80f",
     "#5c940d",
   ],
-
   yellow: [
     "#fff9db",
     "#fff3bf",
