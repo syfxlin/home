@@ -1,5 +1,7 @@
+import { Properties } from "csstype";
 import { Colors } from "./foundations/colors";
-import { BorderWidths, Radii } from "./foundations/borders";
+import { Animations } from "./foundations/animations";
+import { BorderWidths, Radius } from "./foundations/borders";
 import { Breakpoints } from "./foundations/breakpoints";
 import {
   Fonts,
@@ -8,51 +10,36 @@ import {
   LineHeights,
 } from "./foundations/fonts";
 import { Shadows } from "./foundations/shadows";
-import { Sizes, Spacing } from "./foundations/spacing";
-import { TimingFunction } from "./foundations/timingFunction";
-import { Properties } from "csstype";
+import { Sizes, Spacing } from "./foundations/sizes";
+import {
+  Transitions,
+  TransitionTimingFunctions,
+} from "./foundations/transitions";
 
 export type CSSProperties = Properties<string | number>;
 
-export type SizesKey<K extends string = string> =
-  | "xs"
-  | "sm"
-  | "md"
-  | "lg"
-  | "xl"
-  | K
-  | string;
-
-export type SizesRecord<T, K extends string = string> = {
-  xs: T;
-  sm: T;
-  md: T;
-  lg: T;
-  xl: T;
-} & {
-  [P in K]: T;
-} & {
-  [key: string]: T;
-};
-
 export type ThemeTokens = {
   primaryColor: keyof Colors;
-  colors: Colors;
+  animations: Animations;
   borderWidths: BorderWidths;
-  radii: Radii;
+  radius: Radius;
   breakpoints: Breakpoints;
+  colors: Colors;
   fonts: Fonts;
   fontSizes: FontSizes;
-  lineHeights: LineHeights;
   letterSpacings: LetterSpacings;
+  lineHeights: LineHeights;
   shadows: Shadows;
   sizes: Sizes;
   spacing: Spacing;
-  timingFunction: TimingFunction;
+  transitions: Transitions;
+  timingFunctions: TransitionTimingFunctions;
 };
+
+export type ColorScheme = "light" | "dark";
 
 declare module "@emotion/react" {
   export interface Theme extends ThemeTokens {
-    colorScheme: "light" | "dark";
+    colorScheme: ColorScheme;
   }
 }

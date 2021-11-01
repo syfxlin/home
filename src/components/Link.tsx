@@ -1,8 +1,8 @@
 import React from "react";
 import NLink from "next/link";
 import { useTh } from "../theme/hooks/use-th";
-import useMedia from "../hooks/use-media";
 import { css } from "@emotion/react";
+import { useUp } from "../theme/hooks/use-breakpoint";
 
 type LinkProps = {
   label: string;
@@ -13,7 +13,7 @@ type LinkProps = {
 
 const Link: React.FC<LinkProps> = ({ label, icon, href, full }) => {
   const th = useTh();
-  const matches = useMedia(`(min-width: ${th.breakpoint("md")})`);
+  const matches = useUp("md");
   return (
     <NLink href={href}>
       <a
@@ -30,7 +30,7 @@ const Link: React.FC<LinkProps> = ({ label, icon, href, full }) => {
           vertical-align: middle;
           width: auto;
           line-height: ${th.lineHeight("md")};
-          border-radius: ${th.radii("sm")};
+          border-radius: ${th.radius("sm")};
           font-weight: 500;
           transition-property: background-color, border-color, color, fill,
             stroke, opacity, box-shadow, transform;
@@ -40,8 +40,8 @@ const Link: React.FC<LinkProps> = ({ label, icon, href, full }) => {
           border: 1px solid transparent;
           color: ${th.color("dark.7", "dark.4")};
           background-color: transparent;
-          height: ${th.spacing(["minor", 7.5])};
-          padding: 0 ${th.spacing(["minor", !full || !matches ? 2 : 3.5])};
+          height: ${th.spacing(7.5)};
+          padding: 0 ${th.spacing(!full || !matches ? 2 : 3.5)};
 
           &:hover {
             background-color: ${th.color("gray.1", "dark.8")};

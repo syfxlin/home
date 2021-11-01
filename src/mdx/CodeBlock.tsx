@@ -23,7 +23,7 @@ const CodeBlock: React.FC<Props> = ({ children, className }) => {
           className={className}
           style={style}
           css={css`
-            padding: ${th.spacing(["minor", 4])};
+            padding: ${th.spacing(4)};
             overflow-x: auto;
             font-size: ${th.fontSize("sm")};
           `}

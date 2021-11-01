@@ -11,7 +11,7 @@ export const wrapper: React.FC = (props) => {
     <div
       {...props}
       css={css`
-        margin-top: ${th.spacing(["minor", 2])};
+        margin-top: ${th.spacing(2)};
         letter-spacing: ${th.letterSpacing("lg")};
         color: #71717a;
         font-size: 1.125rem;
@@ -104,7 +104,7 @@ export const p: React.FC = (props) => {
     <p
       {...props}
       css={css`
-        margin: ${th.spacing(["minor", 4])} 0;
+        margin: ${th.spacing(4)} 0;
 
         blockquote & {
           margin-top: 0;
@@ -121,11 +121,11 @@ export const inlineCode: React.FC = (props) => {
       {...props}
       css={css`
         font-size: ${th.fontSize("sm")};
-        border-radius: ${th.radii("sm")};
+        border-radius: ${th.radius("sm")};
         white-space: nowrap;
         color: ${th.color("red.7")};
         background-color: ${th.color("red.0")};
-        padding: ${th.spacing(["minor", 0.5])} ${th.spacing(["minor", 1])};
+        padding: ${th.spacing(0.5)} ${th.spacing(1)};
       `}
     />
   );
@@ -186,10 +186,10 @@ export const ul: React.FC = (props) => {
     <ul
       {...props}
       css={css`
-        padding-left: ${th.spacing(["minor", 6])};
+        padding-left: ${th.spacing(6)};
 
         > li + li {
-          margin-top: ${th.spacing(["minor", 1])};
+          margin-top: ${th.spacing(1)};
         }
       `}
     />

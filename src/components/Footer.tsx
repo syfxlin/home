@@ -13,14 +13,14 @@ const Footer: React.FC<Props> = ({ date }) => {
   return (
     <footer
       css={css`
-        padding: ${th.spacing(["minor", 4])} 0;
+        padding: ${th.spacing(4)} 0;
         border-top: 1px solid ${th.color("gray.3")};
         display: flex;
         flex-direction: column;
         align-items: flex-end;
 
         p {
-          margin: ${th.spacing(["minor", 1])} 0;
+          margin: ${th.spacing(1)} 0;
           color: ${th.color("gray.6")};
           font-size: ${th.fontSize("sm")};
         }

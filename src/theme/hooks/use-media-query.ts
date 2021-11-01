@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 
 export const isBrowser = typeof window !== "undefined";
 
-const useMedia = (query: string, defaultState = false) => {
+const useMediaQuery = (query: string, defaultState = false) => {
   const [state, setState] = useState(
     isBrowser ? () => window.matchMedia(query).matches : defaultState
   );
@@ -29,4 +29,4 @@ const useMedia = (query: string, defaultState = false) => {
   return state;
 };
 
-export default useMedia;
+export default useMediaQuery;

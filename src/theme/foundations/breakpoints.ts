@@ -1,6 +1,10 @@
-import { SizesRecord } from "../types";
-
-export type Breakpoints = SizesRecord<number>;
+export type Breakpoints = {
+  xs: number;
+  sm: number;
+  md: number;
+  lg: number;
+  xl: number;
+};
 
 export const breakpoints: Breakpoints = {
   xs: 640,
