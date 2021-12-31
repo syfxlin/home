@@ -1,6 +1,0 @@
-buildpack: nodejs-static
-nginx:
-  root: out
-  error_page:
-    404: 404.html
-  canonical_host: ixk.me

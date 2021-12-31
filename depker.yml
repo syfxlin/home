@@ -1,0 +1,12 @@
+name: home
+template: nodejs-static
+domain:
+  - ixk.me
+  - www.ixk.me
+letsencrypt: true
+port: 80
+nginx:
+  root: out
+  error_page:
+    404: 404.html
+  canonical_host: ixk.me
