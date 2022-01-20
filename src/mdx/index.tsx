@@ -1,18 +1,17 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 import React, { forwardRef } from "react";
-import { css } from "@emotion/react";
-import { useTh } from "../theme/hooks/use-th";
 import CodeBlock from "./CodeBlock";
 import Link from "next/link";
+import { useU } from "@syfxlin/ustyled";
 
 export const wrapper: React.FC = (props) => {
-  const th = useTh();
+  const { css } = useU();
   return (
     <div
       {...props}
       css={css`
-        margin-top: ${th.spacing(2)};
-        letter-spacing: ${th.letterSpacing("lg")};
+        margin-top: 2;
+        letter-spacing: 2;
         color: #71717a;
         font-size: 1.125rem;
       `}
@@ -21,12 +20,12 @@ export const wrapper: React.FC = (props) => {
 };
 
 export const h1: React.FC = (props) => {
-  const th = useTh();
+  const { css } = useU();
   return (
     <h1
       {...props}
       css={css`
-        color: ${th.color("black")};
+        color: black;
         font-weight: 600;
       `}
     />
@@ -34,12 +33,12 @@ export const h1: React.FC = (props) => {
 };
 
 export const h2: React.FC = (props) => {
-  const th = useTh();
+  const { css } = useU();
   return (
     <h2
       {...props}
       css={css`
-        color: ${th.color("black")};
+        color: black;
         font-weight: 600;
       `}
     />
@@ -47,12 +46,12 @@ export const h2: React.FC = (props) => {
 };
 
 export const h3: React.FC = (props) => {
-  const th = useTh();
+  const { css } = useU();
   return (
     <h3
       {...props}
       css={css`
-        color: ${th.color("black")};
+        color: black;
         font-weight: 600;
       `}
     />
@@ -60,12 +59,12 @@ export const h3: React.FC = (props) => {
 };
 
 export const h4: React.FC = (props) => {
-  const th = useTh();
+  const { css } = useU();
   return (
     <h4
       {...props}
       css={css`
-        color: ${th.color("black")};
+        color: black;
         font-weight: 600;
       `}
     />
@@ -73,12 +72,12 @@ export const h4: React.FC = (props) => {
 };
 
 export const h5: React.FC = (props) => {
-  const th = useTh();
+  const { css } = useU();
   return (
     <h5
       {...props}
       css={css`
-        color: ${th.color("black")};
+        color: black;
         font-weight: 600;
       `}
     />
@@ -86,12 +85,12 @@ export const h5: React.FC = (props) => {
 };
 
 export const h6: React.FC = (props) => {
-  const th = useTh();
+  const { css } = useU();
   return (
     <h6
       {...props}
       css={css`
-        color: ${th.color("black")};
+        color: black;
         font-weight: 600;
       `}
     />
@@ -99,12 +98,12 @@ export const h6: React.FC = (props) => {
 };
 
 export const p: React.FC = (props) => {
-  const th = useTh();
+  const { css } = useU();
   return (
     <p
       {...props}
       css={css`
-        margin: ${th.spacing(4)} 0;
+        margin: 4 0;
 
         blockquote & {
           margin-top: 0;
@@ -115,17 +114,17 @@ export const p: React.FC = (props) => {
 };
 
 export const inlineCode: React.FC = (props) => {
-  const th = useTh();
+  const { css } = useU();
   return (
     <code
       {...props}
       css={css`
-        font-size: ${th.fontSize("sm")};
-        border-radius: ${th.radius("sm")};
+        font-size: 0.875;
+        border-radius: 1.25;
         white-space: nowrap;
-        color: ${th.color("red.7")};
-        background-color: ${th.color("red.0")};
-        padding: ${th.spacing(0.5)} ${th.spacing(1)};
+        color: red7;
+        background-color: red0;
+        padding: 0.5 1;
       `}
     />
   );
@@ -135,7 +134,7 @@ export const code = CodeBlock;
 
 export const a = forwardRef<HTMLAnchorElement, JSX.IntrinsicElements["a"]>(
   (props, ref) => {
-    const th = useTh();
+    const { css } = useU();
     const innerLink = props.href?.startsWith("/");
     const Root = innerLink ? Link : React.Fragment;
     return (
@@ -148,7 +147,7 @@ export const a = forwardRef<HTMLAnchorElement, JSX.IntrinsicElements["a"]>(
             transition: color 0.5s;
             transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
             position: relative;
-            color: ${th.color("primary.5")};
+            color: primary5;
             text-decoration: none;
 
             &::before {
@@ -163,7 +162,7 @@ export const a = forwardRef<HTMLAnchorElement, JSX.IntrinsicElements["a"]>(
               transform-origin: 0 50%;
               transition: transform 0.5s;
               transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
-              background-color: ${th.color("primary.5")};
+              background-color: primary5;
             }
 
             &:hover {
@@ -181,15 +180,15 @@ export const a = forwardRef<HTMLAnchorElement, JSX.IntrinsicElements["a"]>(
 );
 
 export const ul: React.FC = (props) => {
-  const th = useTh();
+  const { css } = useU();
   return (
     <ul
       {...props}
       css={css`
-        padding-left: ${th.spacing(6)};
+        padding-left: 6;
 
         > li + li {
-          margin-top: ${th.spacing(1)};
+          margin-top: 1;
         }
       `}
     />

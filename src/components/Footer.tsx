@@ -1,37 +1,65 @@
 import React from "react";
-import { a as A } from "../mdx";
-import { css } from "@emotion/react";
-import { useTh } from "../theme/hooks/use-th";
+import footer from "../../content/settings/footer.json";
+import { useU } from "@syfxlin/ustyled";
+
+const processVar = (name: string, value?: string) => {
+  switch (name) {
+    case "year":
+      return `${new Date().getFullYear()}`;
+  }
+  return "";
+};
+
+const convert = (str?: string) => {
+  if (!str) {
+    return null;
+  }
+  const regexp = /{([^:}]+):?([^}]*)}/g;
+  let match;
+  do {
+    match = regexp.exec(str);
+    if (match) {
+      str = str.replace(
+        match[0],
+        processVar(match[1], match.length > 2 ? match[2] : undefined)
+      );
+    }
+  } while (match);
+  return str;
+};
 
 type Props = {
   date: string;
 };
 
 const Footer: React.FC<Props> = ({ date }) => {
-  const th = useTh();
-  const year = new Date().getFullYear();
+  const { css } = useU();
   return (
     <footer
       css={css`
-        padding: ${th.spacing(4)} 0;
-        border-top: 1px solid ${th.color("gray.3")};
+        padding: 4 0;
+        border-top: 1px solid gray3;
         display: flex;
         flex-direction: column;
         align-items: flex-end;
+        text-align: right;
 
-        p {
-          margin: ${th.spacing(1)} 0;
-          color: ${th.color("gray.6")};
-          font-size: ${th.fontSize("sm")};
+        p,
+        a {
+          margin: 0.5 0;
+          color: gray6;
+          font-size: 0.875;
         }
       `}
     >
-      <p>{year} © Otstar Lin. All rights reserved.</p>
+      <div
+        dangerouslySetInnerHTML={{ __html: convert(footer.main.code) || "" }}
+      />
+      <p>Last updated on: {new Date(date).toLocaleString()}</p>
       <p>
         This page designed and built with by{" "}
-        <A href="https://ixk.me">Otstar Lin</A> in 2021.
+        <a href="https://ixk.me">Otstar Lin</a> in 2021
       </p>
-      <p>Last updated on: {new Date(date).toLocaleString()}.</p>
     </footer>
   );
 };

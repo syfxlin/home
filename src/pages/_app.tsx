@@ -3,15 +3,15 @@ import { theme } from "../theme";
 import React from "react";
 import GlobalStyles from "../theme/GlobalStyles";
 import NormalizeCSS from "../theme/NormalizeCSS";
-import EmotionSystemProvider from "../theme/EmotionSystemProvider";
+import { UstyledProvider } from "@syfxlin/ustyled";
 
 const App: React.FC<AppProps> = ({ Component, pageProps }) => {
   return (
-    <EmotionSystemProvider theme={theme}>
+    <UstyledProvider theme={theme}>
       <NormalizeCSS />
       <GlobalStyles />
       <Component {...pageProps} />
-    </EmotionSystemProvider>
+    </UstyledProvider>
   );
 };
 

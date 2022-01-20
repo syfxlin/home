@@ -5,11 +5,10 @@ import { getAllPages } from "../api/page";
 import layouts, { Layouts } from "../layouts";
 import Header from "../components/Header";
 import Head from "next/head";
-import { useTh } from "../theme/hooks/use-th";
-import { css } from "@emotion/react";
 import Footer from "../components/Footer";
 import seo from "../../content/settings/seo.json";
 import author from "../../content/settings/author.json";
+import { useU } from "@syfxlin/ustyled";
 
 export type PageProps = {
   page: {
@@ -23,7 +22,7 @@ export type PageProps = {
 };
 
 const Page: NextPage<PageProps> = ({ page, ...props }) => {
-  const th = useTh();
+  const { css, theme } = useU();
   const Layout = layouts[page.layout];
   return (
     <>
@@ -35,22 +34,24 @@ const Page: NextPage<PageProps> = ({ page, ...props }) => {
         </title>
       </Head>
       <div
-        css={css`
-          width: 100%;
-          max-width: 100%;
-          margin: auto;
-          padding: 0 1rem;
+        css={[
+          css`
+            width: 100%;
+            max-width: 100%;
+            margin: auto;
+            padding: 0 1rem;
 
-          ${th.up("sm")} {
-            max-width: ${th.breakpoint("sm")};
-          }
-        `}
+            @up sm {
+              max-width: ${theme.breakpoints.sm}px;
+            }
+          `,
+        ]}
       >
         <Header />
         <main
           css={css`
-            padding-top: ${th.spacing(8)};
-            padding-bottom: ${th.spacing(8)};
+            padding-top: 8;
+            padding-bottom: 8;
           `}
         >
           <img
@@ -64,7 +65,7 @@ const Page: NextPage<PageProps> = ({ page, ...props }) => {
           />
           <h1
             css={css`
-              margin-top: ${th.spacing(4)};
+              margin-top: 4;
               margin-bottom: 0;
               font-weight: 500;
               font-family: "Comic Sans MS", serif;
@@ -74,8 +75,8 @@ const Page: NextPage<PageProps> = ({ page, ...props }) => {
           </h1>
           <p
             css={css`
-              margin-top: ${th.spacing(1)};
-              color: ${th.color("gray.6")};
+              margin-top: 1;
+              color: gray6;
             `}
           >
             {author.description}

@@ -15,6 +15,7 @@
     "@mdx-js/loader": "^1.6.22",
     "@mdx-js/react": "^1.6.22",
     "@next/mdx": "^12.0.7",
+    "@syfxlin/ustyled": "^1.2.0",
     "csstype": "^3.0.10",
     "gray-matter": "^4.0.3",
     "next": "12.0.7",

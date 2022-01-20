@@ -2,27 +2,25 @@ import React from "react";
 import { useRouter } from "next/router";
 import Link from "./Link";
 import nav from "../../content/settings/nav.json";
-import { useTh } from "../theme/hooks/use-th";
-import { css } from "@emotion/react";
+import { useU } from "@syfxlin/ustyled";
 
 const Header: React.FC = () => {
   const router = useRouter();
-  const th = useTh();
+  const { css } = useU();
   return (
     <header
       css={css`
         display: flex;
         justify-content: flex-end;
         align-items: center;
-        padding-top: ${th.spacing(4)};
-        padding-bottom: ${th.spacing(4)};
+        padding: 4 0;
 
         > a {
-          &:first-child {
+          &:first-of-type {
             margin-left: 0;
           }
 
-          margin-left: ${th.spacing(0.5)};
+          margin-left: 0.5;
         }
       `}
     >

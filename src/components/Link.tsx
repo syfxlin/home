@@ -1,8 +1,7 @@
 import React from "react";
 import NLink from "next/link";
-import { useTh } from "../theme/hooks/use-th";
-import { css } from "@emotion/react";
 import { useUp } from "../theme/hooks/use-breakpoint";
+import { useU } from "@syfxlin/ustyled";
 
 type LinkProps = {
   label: string;
@@ -12,7 +11,7 @@ type LinkProps = {
 };
 
 const Link: React.FC<LinkProps> = ({ label, icon, href, full }) => {
-  const th = useTh();
+  const { css } = useU();
   const matches = useUp("md");
   return (
     <NLink href={href}>
@@ -29,31 +28,30 @@ const Link: React.FC<LinkProps> = ({ label, icon, href, full }) => {
           white-space: nowrap;
           vertical-align: middle;
           width: auto;
-          line-height: ${th.lineHeight("md")};
-          border-radius: ${th.radius("sm")};
+          line-height: 1.5;
+          border-radius: 1.25;
           font-weight: 500;
-          transition-property: background-color, border-color, color, fill,
-            stroke, opacity, box-shadow, transform;
+          transition-property: default;
           transition-duration: 200ms;
           text-decoration: none;
           font-size: 0.9rem;
           border: 1px solid transparent;
-          color: ${th.color("dark.7", "dark.4")};
+          color: dark7, dark4;
           background-color: transparent;
-          height: ${th.spacing(7.5)};
-          padding: 0 ${th.spacing(!full || !matches ? 2 : 3.5)};
+          height: 7.5;
+          padding: 0 ${!full || !matches ? 2 : 3.5};
 
           &:hover {
-            background-color: ${th.color("gray.1", "dark.8")};
+            background-color: gray1, dark8;
           }
 
           &:focus {
-            box-shadow: 0 0 0 2px ${th.color("primary.1")};
+            box-shadow: 0 0 0 2px primary1;
           }
 
           img {
-            width: ${th.fontSize("md")};
-            height: ${th.fontSize("md")};
+            width: 1rem;
+            height: 1rem;
           }
         `}
       >

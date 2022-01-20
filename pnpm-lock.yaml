@@ -8,6 +8,7 @@ specifiers:
   '@mdx-js/loader': ^1.6.22
   '@mdx-js/react': ^1.6.22
   '@next/mdx': ^12.0.7
+  '@syfxlin/ustyled': ^1.2.0
   '@types/react': 17.0.37
   '@typescript-eslint/eslint-plugin': ^5.6.0
   '@typescript-eslint/parser': ^5.6.0
@@ -35,6 +36,7 @@ dependencies:
   '@mdx-js/loader': 1.6.22_react@17.0.2
   '@mdx-js/react': 1.6.22_react@17.0.2
   '@next/mdx': 12.0.7_f56c41adb6190c4680be4a1c0222355d
+  '@syfxlin/ustyled': 1.2.0
   csstype: 3.0.10
   gray-matter: 4.0.3
   next: 12.0.7_400da7116a9ce58ec4580bb63ace2259
@@ -1718,6 +1720,14 @@ packages:
       json5: 2.2.0
       magic-string: 0.25.7
       string.prototype.matchall: 4.0.6
+    dev: false
+
+  /@syfxlin/ustyled/1.2.0:
+    resolution: {integrity: sha512-PLagGr5njWJzxltanGkgC9gX3xjIZJpLAfVZ+BkHLr1xn0fEpr9z2aMVnQoKNDruPW09jqm2r6FFQOPXeRrVAw==}
+    dependencies:
+      deepmerge: 4.2.2
+      react: 17.0.2
+      react-dom: 17.0.2_react@17.0.2
     dev: false
 
   /@types/eslint-scope/3.7.2:

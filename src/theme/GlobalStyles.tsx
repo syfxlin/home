@@ -1,9 +1,9 @@
 import React from "react";
-import { css, Global } from "@emotion/react";
-import { useTh } from "./hooks/use-th";
+import { Global } from "@emotion/react";
+import { useU } from "@syfxlin/ustyled";
 
 const GlobalStyles: React.FC = () => {
-  const th = useTh();
+  const { css } = useU();
   return (
     <Global
       styles={css`
@@ -15,10 +15,10 @@ const GlobalStyles: React.FC = () => {
 
         html,
         body {
-          font-family: ${th.font("sans") || "sans-serif"};
-          background-color: ${th.color("white", "dark.7")};
-          color: ${th.color("black", "dark.0")};
-          line-height: ${th.lineHeight("md")};
+          font-family: sans;
+          background-color: white, dark7;
+          color: black, dark0;
+          line-height: 1.5;
         }
       `}
     />
