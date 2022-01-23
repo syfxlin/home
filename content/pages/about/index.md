@@ -14,7 +14,7 @@ Hi 👋，我是 Otstar Lin，也可以称呼为繁星 🌟。
 
 你可以通过以下方式找到我 😋：
 
-* Mail：syfxlin@gmail.com
+* Mail：i@ixk.me, syfxlin@gmail.com (deprecated)
 * GitHub：[@syfxlin](https://github.com/syfxlin)
 * Telegram：[@otstar](https://t.me/otstar)
 * Twitter：[@syfxlin](https://twitter.com/syfxlin)
