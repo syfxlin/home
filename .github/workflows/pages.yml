@@ -18,6 +18,8 @@ jobs:
         uses: actions/checkout@v2
       - name: Setup Kubernetes & Docker
         run: |-
+          mkdir -p ~/.kube
+          mkdir -p ~/.docker
           echo $KUBE_CONFIG > ~/.kube/config
           echo $DOCKER_CONFIG > ~/.docker/config.json
         env:
