@@ -10,9 +10,6 @@ jobs:
       TZ: Asia/Shanghai
     runs-on: ubuntu-latest
     container: quay.io/syfxlin/devspace
-    defaults:
-      run:
-        working-directory: /app
     steps:
       - name: Checkout
         uses: actions/checkout@v2
