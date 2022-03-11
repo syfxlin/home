@@ -24,4 +24,4 @@ jobs:
           DOCKER_CONFIG: ${{ secrets.DOCKER_CONFIG }}
       - name: Deploy to Kubernetes
         run: |
-          devspace deploy
+          devspace deploy -n production
