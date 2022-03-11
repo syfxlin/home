@@ -2,25 +2,27 @@ name: Next Deploy
 on:
   push:
     branches:
-      - master
+      - dev
   workflow_dispatch:
 jobs:
   deploy:
     env:
       TZ: Asia/Shanghai
     runs-on: ubuntu-latest
+    container: quay.io/syfxlin/devspace
+    defaults:
+      run:
+        working-directory: /app
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      - name: Setup node
-        uses: actions/setup-node@v2
-        with:
-          node-version: "16"
-      - name: Install depker-cli
-        run: npm i -g @syfxlin/depker-cli
-      - name: Login to depker
-        run: |
-          depker config:endpoint ${{ secrets.DEPKER_ENDPOINT }} &&
-          depker login:token ${{ secrets.DEPKER_TOKEN }}
-      - name: Deploy to depker
-        run: depker deploy -v
+      - name: Setup Kubernetes & Docker
+        run: |-
+          echo $KUBE_CONFIG > ~/.kube/config
+          echo $DOCKER_CONFIG > ~/.docker/config.json
+        env:
+          KUBE_CONFIG: ${{ secrets.KUBE_CONFIG }}
+          DOCKER_CONFIG: ${{ secrets.DOCKER_CONFIG }}
+      - name: Deploy to Kubernetes
+        run: |-
+          devspace deploy
