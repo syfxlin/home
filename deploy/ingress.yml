@@ -3,7 +3,7 @@ kind: Ingress
 metadata:
   name: home
   annotations:
-    #cert-manager.io/cluster-issuer: "letsencrypt-prod"
+    cert-manager.io/cluster-issuer: "letsencrypt-prod"
     nginx.ingress.kubernetes.io/server-alias: "www.ixk.me"
     nginx.ingress.kubernetes.io/from-to-www-redirect: "true"
 spec:
