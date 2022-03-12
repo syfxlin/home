@@ -19,4 +19,5 @@ RUN pnpm run build
 FROM nginx:alpine
 
 # copy static pages
+RUN rm -f /usr/share/nginx/html/*
 COPY --chown=nginx:nginx --from=builder /app/out /usr/share/nginx/html
