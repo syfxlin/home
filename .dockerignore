@@ -1,4 +1,3 @@
-### .gitignore ###
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
 # dependencies
@@ -37,7 +36,7 @@ yarn-error.log*
 **/public/workbox-*.js*
 **/public/serviceworker.js*
 .idea/
-.devspace/
 
-### New ###
+deploy/
+.devspace/
 devspace.yaml
