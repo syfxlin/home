@@ -37,6 +37,5 @@ yarn-error.log*
 **/public/serviceworker.js*
 .idea/
 
-deploy/
 .devspace/
 devspace.yaml
