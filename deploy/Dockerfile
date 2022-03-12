@@ -1,5 +1,5 @@
 # step build next page
-FROM quay.io/syfxlin/pnpm:latest
+FROM quay.io/syfxlin/pnpm:latest as builder
 WORKDIR /app
 
 # copy package.json
