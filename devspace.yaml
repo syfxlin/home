@@ -1,0 +1,22 @@
+version: v1beta11
+vars:
+  - name: image
+    value: cr.ixk.me/syfxlin/home
+images:
+  app:
+    image: ${image}
+    dockerfile: ./deploy/Dockerfile
+    tags:
+      - "latest"
+      - "#####"
+    build:
+      buildKit:
+        inCluster:
+          name: buildkit
+          namespace: kube-system
+deployments:
+  - name: home
+    kubectl:
+      kustomize: true
+      manifests:
+        - deploy/
