@@ -1,12 +1,11 @@
 # step build next page
-FROM node:alpine as builder
+FROM quay.io/syfxlin/pnpm:latest
 WORKDIR /app
 
 # copy package.json
 COPY package.json pnpm-lock.yaml ./
 
 # install node modules
-RUN npm i -g pnpm
 RUN pnpm install --frozen-lockfile
 
 # copy project
@@ -16,8 +15,7 @@ COPY . .
 RUN pnpm run build
 
 # step nginx
-FROM nginx:alpine
+FROM quay.io/syfxlin/nginx:latest
 
 # copy static pages
-RUN rm -f /usr/share/nginx/html/*
 COPY --chown=nginx:nginx --from=builder /app/out /usr/share/nginx/html
