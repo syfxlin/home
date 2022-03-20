@@ -16,12 +16,9 @@ jobs:
       - name: Setup Kubernetes & Docker
         run: |
           mkdir -p ~/.kube
-          mkdir -p ~/.docker
           echo "$KUBE_CONFIG" > ~/.kube/config
-          echo "$DOCKER_CONFIG" > ~/.docker/config.json
         env:
           KUBE_CONFIG: ${{ secrets.KUBE_CONFIG }}
-          DOCKER_CONFIG: ${{ secrets.DOCKER_CONFIG }}
       - name: Deploy to Kubernetes
         run: |
-          devspace deploy -n production
+          tilt ci
