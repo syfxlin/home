@@ -9,7 +9,7 @@ jobs:
     env:
       TZ: Asia/Shanghai
     runs-on: ubuntu-latest
-    container: quay.io/syfxlin/devspace
+    container: quay.io/syfxlin/tilt
     steps:
       - name: Checkout
         uses: actions/checkout@v2
