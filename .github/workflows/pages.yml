@@ -21,4 +21,4 @@ jobs:
           KUBE_CONFIG: ${{ secrets.KUBE_CONFIG }}
       - name: Deploy to Kubernetes
         run: |
-          tilt ci
+          tilt-re ci
