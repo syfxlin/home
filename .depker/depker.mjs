@@ -9,10 +9,11 @@ export const deploy = async () => {
   });
   const compose = depker.compose.deployment("home", {
     services: {
-      home: {
+      web: {
         image,
         traefik: {
           domain: ["ixk.me", "www.ixk.me"],
+          tls: true,
         },
       },
     },
