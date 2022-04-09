@@ -15,10 +15,10 @@ jobs:
         uses: actions/checkout@v2
       - name: Setup Docker
         run: |
-          mkdir -p ~/.docker
-          echo "$CA_PEM" > ~/.docker/ca.pem
-          echo "$CERT_PEM" > ~/.docker/cert.pem
-          echo "$KEY_PEM" > ~/.docker/key.pem
+          mkdir -p /home/runner/.docker
+          echo "$CA_PEM" > /home/runner/.docker/ca.pem
+          echo "$CERT_PEM" > /home/runner/.docker/cert.pem
+          echo "$KEY_PEM" > /home/runner/.docker/key.pem
         env:
           CA_PEM: ${{ secrets.CA_PEM }}
           CERT_PEM: ${{ secrets.CERT_PEM }}
