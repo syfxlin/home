@@ -15,16 +15,16 @@ jobs:
         uses: actions/checkout@v2
       - name: Deploy to docker
         run: |
-          mkdir -p /home/runner/certs
-          echo "$CA_PEM" > /home/runner/certs/ca.pem
-          echo "$CERT_PEM" > /home/runner/certs/cert.pem
-          echo "$KEY_PEM" > /home/runner/certs/key.pem
-          ls /home/runner/certs
+          export DOCKER_HOST=${{ secrets.DOCKER_HOST }}
+          export DOCKER_TLS_VERIFY=1
+
+          mkdir -p ~/.docker
+          echo "$CA_PEM" > ~/.docker/ca.pem
+          echo "$CERT_PEM" > ~/.docker/cert.pem
+          echo "$KEY_PEM" > ~/.docker/key.pem
+
           depker do deploy -f .depker/depker.ts
         env:
-          DOCKER_HOST: ${{ secrets.DOCKER_HOST }}
-          DOCKER_CERT_PATH: /home/runner/certs
-          DOCKER_TLS_VERIFY: 1
           CA_PEM: ${{ secrets.CA_PEM }}
           CERT_PEM: ${{ secrets.CERT_PEM }}
           KEY_PEM: ${{ secrets.KEY_PEM }}
