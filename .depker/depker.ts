@@ -1,7 +1,7 @@
-/* eslint-disable no-undef */
+/// <reference path="https://raw.githubusercontent.com/syfxlin/depker/master/src/types/index.ts" />
 
 export const deploy = async () => {
-  const dockerfile = depker.template.nodejsStatic({
+  const dockerfile = depker.template.nodejs_static({
     nginx: { root: "out" },
   });
   const image = await depker.docker.build("syfxlin/home", {
