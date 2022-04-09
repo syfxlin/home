@@ -6,10 +6,10 @@ on:
   workflow_dispatch:
 jobs:
   deploy:
+    name: Deploy
     runs-on: ubuntu-latest
     container:
-      image: quay.io/syfxlin/depker
-      options: --user root
+      image: ghcr.io/syfxlin/depker
     env:
       TZ: Asia/Shanghai
     steps:
