@@ -19,6 +19,7 @@ jobs:
           echo "$CA_PEM" > /home/runner/certs/ca.pem
           echo "$CERT_PEM" > /home/runner/certs/cert.pem
           echo "$KEY_PEM" > /home/runner/certs/key.pem
+          ls /home/runner/certs
           depker do deploy -f .depker/depker.ts
         env:
           DOCKER_HOST: ${{ secrets.DOCKER_HOST }}
