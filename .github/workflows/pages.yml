@@ -6,19 +6,25 @@ on:
   workflow_dispatch:
 jobs:
   deploy:
+    runs-on: ubuntu-latest
+    container: quay.io/syfxlin/depker
     env:
       TZ: Asia/Shanghai
-    runs-on: ubuntu-latest
-    container: quay.io/syfxlin/tilt
+      DOCKER_HOST: ${{ secrets.DOCKER_HOST }}
+      DOCKER_TLS_VERIFY: 1
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      - name: Setup Kubernetes & Docker
+      - name: Setup Docker
         run: |
-          mkdir -p ~/.kube
-          echo "$KUBE_CONFIG" > ~/.kube/config
+          mkdir -p ~/.docker
+          echo "$CA_PEM" > ~/.docker/ca.pem
+          echo "$CERT_PEM" > ~/.docker/cert.pem
+          echo "$KEY_PEM" > ~/.docker/key.pem
         env:
-          KUBE_CONFIG: ${{ secrets.KUBE_CONFIG }}
-      - name: Deploy to Kubernetes
+          CA_PEM: ${{ secrets.CA_PEM }}
+          CERT_PEM: ${{ secrets.CERT_PEM }}
+          KEY_PEM: ${{ secrets.KEY_PEM }}
+      - name: Deploy to docker
         run: |
-          tilt-re ci
+          depker do deploy -f .depker/depker.ts

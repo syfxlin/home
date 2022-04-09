@@ -21,5 +21,6 @@ module.exports = {
     "@typescript-eslint/ban-types": "off",
     "@next/next/no-document-import-in-page": "off",
     "@next/next/no-img-element": "off",
+    "@typescript-eslint/triple-slash-reference": "off",
   },
 };
