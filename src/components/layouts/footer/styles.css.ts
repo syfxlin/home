@@ -6,7 +6,7 @@ export const container = styled.css`
   width: 100%;
   max-width: ${theme.fontSize.calc(45)};
   margin: 0 auto;
-  padding: ${theme.spacing.calc(5)} ${theme.spacing.calc(8)};
+  padding: ${theme.spacing.calc(5)} 0;
   display: flex;
   flex-direction: column;
   align-items: center;

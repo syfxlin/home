@@ -9,7 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@iconify/utils": "^2.1.12",
+    "@iconify/utils": "^2.1.14",
     "@keystatic/core": "^0.2.9",
     "@keystatic/next": "^2.0.1",
     "@radix-ui/colors": "^3.0.0",
@@ -17,7 +17,7 @@
     "@syfxlin/reve": "^1.0.5",
     "@tippyjs/react": "^4.2.6",
     "@vanilla-extract/css": "^1.14.0",
-    "next": "^14.0.2",
+    "next": "^14.0.4",
     "next-pwa": "^5.6.0",
     "next-themes": "^0.2.1",
     "nextjs-google-analytics": "^2.3.3",
@@ -26,19 +26,19 @@
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
-    "@iconify/json": "^2.2.142",
-    "@next/bundle-analyzer": "^14.0.2",
-    "@types/node": "^20.9.0",
-    "@types/react": "^18.2.37",
-    "@types/react-dom": "^18.2.15",
-    "@typescript-eslint/eslint-plugin": "^6.11.0",
-    "@typescript-eslint/parser": "^6.11.0",
+    "@iconify/json": "^2.2.163",
+    "@next/bundle-analyzer": "^14.0.4",
+    "@types/node": "^20.10.5",
+    "@types/react": "^18.2.46",
+    "@types/react-dom": "^18.2.18",
+    "@typescript-eslint/eslint-plugin": "^6.16.0",
+    "@typescript-eslint/parser": "^6.16.0",
     "@vanilla-extract/next-plugin": "^2.3.2",
-    "eslint": "^8.53.0",
-    "eslint-config-next": "14.0.2",
-    "eslint-config-prettier": "^9.0.0",
-    "eslint-plugin-prettier": "^5.0.1",
-    "prettier": "^3.1.0",
-    "typescript": "^5.2.2"
+    "eslint": "^8.56.0",
+    "eslint-config-next": "14.0.4",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.1.2",
+    "prettier": "^3.1.1",
+    "typescript": "^5.3.3"
   }
 }
