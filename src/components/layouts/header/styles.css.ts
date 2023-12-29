@@ -29,12 +29,16 @@ export const author = styled.css`
 
 export const intro = styled.css`
   font-size: ${theme.fontSize.calc(0.9)};
+  text-align: center;
 `;
 
 export const links = styled.css`
   margin-top: ${theme.spacing.calc(4)};
   display: flex;
   gap: ${theme.spacing.calc(4)};
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
 
   a {
     display: inline-flex;
