@@ -2,14 +2,14 @@ import { config, singleton } from "@keystatic/core";
 import { fields } from "@syfxlin/reks";
 import { COLINE_GITHUB_REPO, IS_DEV } from "./src/env/private";
 
-const storage = () => {
+function storage() {
   if (IS_DEV || !COLINE_GITHUB_REPO) {
     return { kind: "local" } as const;
   } else {
     const [name, repo] = COLINE_GITHUB_REPO.split("/");
     return { kind: "github", repo: { owner: name, name: repo } } as const;
   }
-};
+}
 
 export default config({
   storage: storage(),
@@ -59,7 +59,7 @@ export default config({
           }),
           {
             label: "站点关键词",
-            itemLabel: (props) => props.value,
+            itemLabel: props => props.value,
             validation: { length: { min: 0 } },
           },
         ),
@@ -115,7 +115,7 @@ export default config({
           }),
           {
             label: "主菜单",
-            itemLabel: (props) => props.fields.title.value,
+            itemLabel: props => props.fields.title.value,
             validation: { length: { min: 0, max: 10 } },
           },
         ),
@@ -140,7 +140,7 @@ export default config({
           }),
           {
             label: "主页脚",
-            itemLabel: (props) => props.fields.title.value,
+            itemLabel: props => props.fields.title.value,
             validation: { length: { min: 0, max: 10 } },
           },
         ),

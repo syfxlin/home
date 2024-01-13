@@ -1,5 +1,5 @@
-import { theme } from "../../../theme/theme.css";
 import { styled } from "@syfxlin/reve";
+import { theme } from "../../../theme/theme.css";
 
 export const container = styled.css`
   position: relative;
@@ -27,4 +27,10 @@ export const image = styled.css`
   object-fit: cover;
   width: 100%;
   height: 100%;
+  filter: none;
+  transition: filter 0.3s ease-out;
+
+  &[loading="lazy"][style*="background-image"] {
+    filter: blur(8px);
+  }
 `;

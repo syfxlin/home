@@ -1,12 +1,12 @@
 {
-  "name": "home",
-  "version": "0.1.0",
+  "name": "@syfxlin/home",
+  "type": "module",
+  "version": "0.0.0-semantic-release",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
+    "start": "next start"
   },
   "dependencies": {
     "@iconify/utils": "^2.1.14",
@@ -17,28 +17,25 @@
     "@syfxlin/reve": "^1.0.5",
     "@tippyjs/react": "^4.2.6",
     "@vanilla-extract/css": "^1.14.0",
+    "medium-zoom": "^1.1.0",
     "next": "^14.0.4",
     "next-pwa": "^5.6.0",
     "next-themes": "^0.2.1",
     "nextjs-google-analytics": "^2.3.3",
     "nextjs-toploader": "^1.6.4",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "sharp": "^0.32.6"
   },
   "devDependencies": {
     "@iconify/json": "^2.2.163",
     "@next/bundle-analyzer": "^14.0.4",
+    "@syfxlin/eslint-config": "^1.0.2",
     "@types/node": "^20.10.5",
     "@types/react": "^18.2.46",
     "@types/react-dom": "^18.2.18",
-    "@typescript-eslint/eslint-plugin": "^6.16.0",
-    "@typescript-eslint/parser": "^6.16.0",
     "@vanilla-extract/next-plugin": "^2.3.2",
     "eslint": "^8.56.0",
-    "eslint-config-next": "14.0.4",
-    "eslint-config-prettier": "^9.1.0",
-    "eslint-plugin-prettier": "^5.1.2",
-    "prettier": "^3.1.1",
     "typescript": "^5.3.3"
   }
 }

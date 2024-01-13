@@ -1,12 +1,13 @@
-import * as styles from "./styles.css";
 import React, { ReactNode } from "react";
 import { Link } from "../../ui/link";
+import { t } from "../../../locales";
+import * as styles from "./styles.css";
 
-export type ErrorFoundProps = {
+export interface ErrorFoundProps {
   code: number;
   message: string;
   children?: ReactNode;
-};
+}
 
 export const ErrorFound: React.FC<ErrorFoundProps> = (props) => {
   return (
@@ -17,8 +18,8 @@ export const ErrorFound: React.FC<ErrorFoundProps> = (props) => {
       </section>
       {props.children && <section className={styles.content}>{props.children}</section>}
       <section>
-        <Link href="/" aria-label="返回首页">
-          返回首页
+        <Link href="/" aria-label={t("error.back")}>
+          {t("error.back")}
         </Link>
       </section>
     </main>

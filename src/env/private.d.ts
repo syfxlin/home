@@ -1,7 +1,6 @@
 export * from "./public";
 // private
 export const COLINE_ANALYZE: string | undefined;
-export const COLINE_GITHUB_REPO: string | undefined;
 export const COLINE_GITHUB_TOKEN: string | undefined;
 // keystatic
 export const KEYSTATIC_SECRET: string | undefined;
