@@ -1,6 +1,6 @@
 import { config, singleton } from "@keystatic/core";
 import { fields } from "@syfxlin/reks";
-import { COLINE_GITHUB_REPO, IS_DEV } from "./src/env/private";
+import { COLINE_GITHUB_REPO, IS_DEV } from "./src/env/public";
 
 function storage() {
   if (IS_DEV || !COLINE_GITHUB_REPO) {
