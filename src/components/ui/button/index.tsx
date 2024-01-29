@@ -9,7 +9,6 @@ export type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
   tooltip?: TippyProps | boolean;
   unstyled?: boolean;
 };
-
 export type LinkButtonProps = AnchorHTMLAttributes<HTMLAnchorElement> & LinkProps & {
   tooltip?: TippyProps | boolean;
   unstyled?: boolean;
