@@ -43,6 +43,6 @@ export const links = styled.css`
   a {
     display: inline-flex;
     align-items: center;
-    gap: ${theme.spacing.calc(1)};
+    padding: 0 ${theme.spacing.calc(1)};
   }
 `;

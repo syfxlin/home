@@ -9,14 +9,14 @@
     "start": "next start"
   },
   "dependencies": {
-    "@iconify/utils": "^2.1.15",
-    "@keystatic/core": "^0.3.4",
+    "@iconify/utils": "^2.1.20",
+    "@keystatic/core": "^0.3.10",
     "@keystatic/next": "^3.0.0",
     "@radix-ui/colors": "^3.0.0",
     "@syfxlin/reks": "^1.0.1",
     "@syfxlin/reve": "^1.0.5",
     "@tippyjs/react": "^4.2.6",
-    "@vanilla-extract/css": "^1.14.0",
+    "@vanilla-extract/css": "^1.14.1",
     "medium-zoom": "^1.1.0",
     "next": "^14.1.0",
     "next-pwa": "^5.6.0",
@@ -28,13 +28,13 @@
     "sharp": "^0.32.6"
   },
   "devDependencies": {
-    "@iconify/json": "^2.2.171",
+    "@iconify/json": "^2.2.176",
     "@next/bundle-analyzer": "^14.1.0",
     "@syfxlin/eslint-config": "^1.0.2",
-    "@types/node": "^20.11.5",
+    "@types/node": "^20.11.10",
     "@types/react": "^18.2.48",
     "@types/react-dom": "^18.2.18",
-    "@vanilla-extract/next-plugin": "^2.3.3",
+    "@vanilla-extract/next-plugin": "^2.3.5",
     "eslint": "^8.56.0",
     "typescript": "^5.3.3"
   }
