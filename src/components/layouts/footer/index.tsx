@@ -1,34 +1,32 @@
-import React from "react";
+import * as React from "react";
+import { fetcher } from "../../../contents";
 import { Divider } from "../../ui/divider";
 import { Link } from "../../ui/link";
-import { fetcher } from "../../../contents";
-import * as styles from "./styles.css";
 
 export const Footer: React.FC = async () => {
   const [seo, author, footer] = await Promise.all([fetcher.seo(), fetcher.author(), fetcher.footer()]);
   return (
-    <footer className={styles.container}>
-      <p>
+    <footer className="relative mx-auto flex w-full max-w-[45rem] flex-col items-center px-0 py-5 text-center text-[0.875rem] text-[var(--theme-text-description)]">
+      <p className="m-0.25">
         {footer.main.map((item, index) => (
           <React.Fragment key={item.link}>
             {index !== 0 && <Divider orientation="vertical" />}
-            <Link unstyled aria-label={item.title} href={item.link}>
+            <Link unstyled aria-label={item.title} href={item.link} className="text-[var(--theme-text-description)] underline">
               {item.title}
             </Link>
           </React.Fragment>
         ))}
       </p>
-      <p>
-        Copyright © {seo.birthday.getFullYear()}-{new Date().getFullYear()} {author.fullname}
-      </p>
-      <p>
+      {/* eslint-disable-next-line react/purity */}
+      <p className="m-0.25">Copyright © {seo.birthday.getFullYear()}-{new Date().getFullYear()} {author.fullname}</p>
+      <p className="m-0.25">
         Powered by{" "}
-        <Link unstyled href="https://nextjs.org">
+        <Link unstyled href="https://nextjs.org" className="text-[var(--theme-text-description)] underline">
           Next.js
         </Link>
         <Divider orientation="vertical" />
         Designed by{" "}
-        <Link unstyled href="https://ixk.me">
+        <Link unstyled href="https://ixk.me" className="text-[var(--theme-text-description)] underline">
           Otstar Lin
         </Link>
       </p>

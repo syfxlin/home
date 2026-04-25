@@ -1,4 +1,3 @@
-import { createReveTheme } from "@syfxlin/reve";
 import {
   blueA,
   blueDarkA,
@@ -17,6 +16,7 @@ import {
   yellowA,
   yellowDarkA,
 } from "@radix-ui/colors";
+import { createReveTheme } from "@syfxlin/reve";
 import { breakpoints } from "./tokens";
 
 function values<V extends Record<string, string> = Record<string, string>>(def: string | number, values: V) {

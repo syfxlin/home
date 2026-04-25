@@ -1,6 +1,9 @@
 "use client";
-import React from "react";
-import { cx } from "@syfxlin/reve";
+import * as React from "react";
+
+function mergeClassName(...names: Array<string | false | null | undefined>) {
+  return names.filter(Boolean).join(" ");
+}
 
 export interface IconifyProps {
   icon: string;
@@ -15,9 +18,9 @@ export const Iconify: React.FC<IconifyProps> = (props) => {
         height="1.1rem"
         viewBox="0 0 24 24"
         dangerouslySetInnerHTML={{ __html: props.icon.substring(4) }}
-        className={cx("iconify", props.className)}
+        className={mergeClassName("iconify inline-flex items-center justify-center align-middle text-center", props.className)}
       />
     );
   }
-  return <span className={cx("iconify", props.icon, props.className)} />;
+  return <span className={mergeClassName("iconify inline-flex items-center justify-center align-middle text-center", props.icon, props.className)} />;
 };

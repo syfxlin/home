@@ -251,3 +251,4 @@ next-env.d.ts
 # content
 /public/sw.js*
 /public/workbox-*.js*
+.claude

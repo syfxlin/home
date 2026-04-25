@@ -1,19 +1,25 @@
 "use client";
-import React, { HTMLAttributes, forwardRef } from "react";
-import { cx, sx } from "@syfxlin/reve";
-import * as styles from "./styles.css";
+import * as React from "react";
+import { forwardRef, HTMLAttributes } from "react";
+
+function mergeClassName(...names: Array<string | false | null | undefined>) {
+  return names.filter(Boolean).join(" ");
+}
 
 export type AspectRatioProps = HTMLAttributes<HTMLDivElement> & {
   ratio: number;
 };
 
-export const AspectRatio = forwardRef<HTMLDivElement, AspectRatioProps>(({ ratio: r, ...props }, ref) => {
+export const AspectRatio = forwardRef<HTMLDivElement, AspectRatioProps>(({ ratio, ...props }, ref) => {
   return (
     <div
       {...props}
-      className={cx(props.className, styles.container)}
-      style={sx(props.style, { [styles.ratio]: `${((1 / r) * 100).toFixed(4)}%` })}
       ref={ref}
+      className={mergeClassName(
+        "relative max-w-full overflow-hidden before:block before:h-0 before:content-[''] after:table after:clear-both after:content-[''] [&>*:not(style)]:absolute [&>*:not(style)]:inset-0 [&>*:not(style)]:flex [&>*:not(style)]:w-full [&>*:not(style)]:items-center [&>*:not(style)]:justify-center [&>*:not(style)]:overflow-hidden [&>img]:object-cover [&>video]:object-cover",
+        props.className,
+      )}
+      style={{ ...props.style, paddingBottom: `${((1 / ratio) * 100).toFixed(4)}%` }}
     />
   );
 });

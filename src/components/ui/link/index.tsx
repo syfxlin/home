@@ -1,9 +1,12 @@
 "use client";
-import React, { AnchorHTMLAttributes, ReactElement, forwardRef } from "react";
 import Tippy, { TippyProps } from "@tippyjs/react";
 import NLink, { LinkProps as NLinkProps } from "next/link";
-import { cx } from "@syfxlin/reve";
-import * as styles from "./styles.css";
+import * as React from "react";
+import { AnchorHTMLAttributes, forwardRef, ReactElement } from "react";
+
+function mergeClassName(...names: Array<string | false | null | undefined>) {
+  return names.filter(Boolean).join(" ");
+}
 
 export type LinkProps = AnchorHTMLAttributes<HTMLAnchorElement> & NLinkProps & {
   tooltip?: TippyProps | boolean;
@@ -11,17 +14,18 @@ export type LinkProps = AnchorHTMLAttributes<HTMLAnchorElement> & NLinkProps & {
 };
 
 export const Link = forwardRef<HTMLAnchorElement, LinkProps>(({ tooltip, unstyled, href, ...props }, ref) => {
+  const className = mergeClassName(props.className, !unstyled && "link-animated");
   let element: ReactElement | undefined;
   if (typeof href === "string") {
-    if (/^(https?:)?\/\/|\.[\da-z]+$/i.test(href)) {
-      element = <a target="_blank" rel="nofollow noopener noreferrer" {...props} className={cx(props.className, !unstyled && styles.link)} href={href} ref={ref} />;
+    if (/^(?:https?:)?\/\/|\.[\da-z]+$/i.test(href)) {
+      element = <a target="_blank" rel="nofollow noopener noreferrer" {...props} className={className} href={href} ref={ref} />;
     }
-    if (/^#/i.test(href)) {
-      element = <a {...props} className={cx(props.className, !unstyled && styles.link)} href={href} ref={ref} />;
+    if (href.startsWith("#")) {
+      element = <a {...props} className={className} href={href} ref={ref} />;
     }
   }
   if (!element) {
-    element = <NLink {...props} className={cx(props.className, !unstyled && styles.link)} href={href} ref={ref} />;
+    element = <NLink {...props} className={className} href={href} ref={ref} />;
   }
   return tooltip ?
       (

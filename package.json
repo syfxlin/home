@@ -32,11 +32,14 @@
     "@iconify/json": "^2.2.466",
     "@next/bundle-analyzer": "^16.2.4",
     "@syfxlin/eslint-config": "^1.2.1",
+    "@tailwindcss/postcss": "^4.2.4",
     "@types/node": "^25.6.0",
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
     "@vanilla-extract/next-plugin": "^2.5.2",
     "eslint": "^10.2.1",
+    "postcss": "^8.5.10",
+    "tailwindcss": "^4.2.4",
     "typescript": "^6.0.3"
   }
 }
