@@ -12,7 +12,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
       - name: Setup Deno
-        uses: denoland/setup-deno@v1
+        uses: denoland/setup-deno@v2.0.4
       - name: Setup Depker
         run: |
           wget -O /usr/local/bin/depker https://github.com/syfxlin/depker/releases/latest/download/depker.linux.amd64
