@@ -256,20 +256,29 @@
   .link-animated {
     text-decoration: none;
     color: var(--theme-text-primary);
-    transition: background-size 0.3s, color 0.3s, background-color 0.3s;
+    transition:
+      background-size 0.3s,
+      color 0.3s,
+      background-color 0.3s;
     background:
       linear-gradient(to right, transparent, transparent),
       linear-gradient(to right, var(--theme-bg-focus), var(--theme-bg-focus));
-    background-size: 100% 40%, 0 40%;
+    background-size:
+      100% 40%,
+      0 40%;
     background-repeat: no-repeat;
-    background-position: 100% 100%, 0 100%;
+    background-position:
+      100% 100%,
+      0 100%;
   }
 
   .link-animated.active,
   .link-animated:hover,
   .link-animated:focus,
   .link-animated:active {
-    background-size: 0 40%, 100% 40%;
+    background-size:
+      0 40%,
+      100% 40%;
   }
 }
 
