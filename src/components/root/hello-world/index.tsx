@@ -4,6 +4,7 @@ export function HelloWorld() {
   return (
     <script
       id="hello-world-script"
+      // eslint-disable-next-line react-dom/no-dangerously-set-innerhtml
       dangerouslySetInnerHTML={{
         __html: `
           const e1 = "line-height:22px;border-radius:3px;color:#FFF;background:#7048e8;";

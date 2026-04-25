@@ -2,7 +2,7 @@
 import Tippy, { TippyProps } from "@tippyjs/react";
 import Link, { LinkProps } from "next/link";
 import * as React from "react";
-import { AnchorHTMLAttributes, ButtonHTMLAttributes, forwardRef } from "react";
+import { AnchorHTMLAttributes, ButtonHTMLAttributes } from "react";
 
 function mergeClassName(...names: Array<string | false | null | undefined>) {
   return names.filter(Boolean).join(" ");
@@ -14,14 +14,16 @@ const defaultClassName =
 export type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
   tooltip?: TippyProps | boolean;
   unstyled?: boolean;
+  ref?: React.Ref<HTMLButtonElement>;
 };
 export type LinkButtonProps = AnchorHTMLAttributes<HTMLAnchorElement> & LinkProps & {
   tooltip?: TippyProps | boolean;
   unstyled?: boolean;
+  ref?: React.Ref<HTMLAnchorElement>;
 };
 
-export const Button = forwardRef<HTMLButtonElement, ButtonProps>(({ tooltip, unstyled, ...props }, ref) => {
-  const element = <button {...props} className={mergeClassName(props.className, !unstyled && defaultClassName)} ref={ref} />;
+export function Button({ tooltip, unstyled, ...props }: ButtonProps) {
+  const element = <button {...props} className={mergeClassName(props.className, !unstyled && defaultClassName)} />;
   return tooltip ?
       (
         <Tippy animation="shift-away" content={props["aria-label"]} {...(typeof tooltip === "boolean" ? {} : tooltip)}>
@@ -31,11 +33,11 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(({ tooltip, uns
       (
         element
       );
-});
+}
 
-export const LinkButton = forwardRef<HTMLAnchorElement, LinkButtonProps>(({ tooltip, unstyled, href, ...props }, ref) => {
+export function LinkButton({ tooltip, unstyled, href, ...props }: LinkButtonProps) {
   if (typeof href === "string" && /^(?:https?:)?\/\/|^#|\.[\da-z]+$/i.test(href)) {
-    const element = <a {...props} className={mergeClassName(props.className, !unstyled && defaultClassName)} href={href} ref={ref} />;
+    const element = <a {...props} className={mergeClassName(props.className, !unstyled && defaultClassName)} href={href} />;
     return tooltip ?
         (
           <Tippy animation="shift-away" content={props["aria-label"]} {...(typeof tooltip === "boolean" ? {} : tooltip)}>
@@ -47,7 +49,7 @@ export const LinkButton = forwardRef<HTMLAnchorElement, LinkButtonProps>(({ tool
         );
   }
 
-  const element = <Link {...props} className={mergeClassName(props.className, !unstyled && defaultClassName)} href={href} ref={ref} />;
+  const element = <Link {...props} className={mergeClassName(props.className, !unstyled && defaultClassName)} href={href} />;
   return tooltip ?
       (
         <Tippy animation="shift-away" content={props["aria-label"]} {...(typeof tooltip === "boolean" ? {} : tooltip)}>
@@ -57,4 +59,4 @@ export const LinkButton = forwardRef<HTMLAnchorElement, LinkButtonProps>(({ tool
       (
         element
       );
-});
+}

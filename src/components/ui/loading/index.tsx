@@ -4,7 +4,7 @@ import * as React from "react";
 export const Loading: React.FC = () => {
   return (
     <div className="flex h-full w-full items-center justify-center p-6">
-      <svg viewBox="0 0 135 140" xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 fill-[var(--theme-text-primary)] text-[var(--theme-text-primary)]">
+      <svg viewBox="0 0 135 140" xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 fill-(--theme-text-primary) text-(--theme-text-primary)">
         <rect y="10" width="15" height="120" rx="6">
           <animate
             attributeName="height"

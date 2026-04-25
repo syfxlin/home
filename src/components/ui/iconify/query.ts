@@ -8,9 +8,10 @@ import ri from "@iconify/json/json/ri.json";
 import simple from "@iconify/json/json/simple-icons.json";
 import tabler from "@iconify/json/json/tabler.json";
 import uil from "@iconify/json/json/uil.json";
+import { IconifyJSON } from "@iconify/types";
 import { getIconData, iconToHTML, iconToSVG } from "@iconify/utils";
 
-const icons = [ri, ph, la, uil, carbon, tabler, lucide, simple, material];
+const icons = [ri, ph, la, uil, carbon, tabler, lucide, simple, material] as Array<IconifyJSON>;
 
 function svg(icon: string) {
   const [prefix, target] = icon.split(":");

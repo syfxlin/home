@@ -28,6 +28,7 @@
   },
   "devDependencies": {
     "@iconify/json": "^2.2.466",
+    "@iconify/types": "^2.0.0",
     "@next/bundle-analyzer": "^16.2.4",
     "@syfxlin/eslint-config": "^1.2.1",
     "@tailwindcss/postcss": "^4.2.4",

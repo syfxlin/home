@@ -17,6 +17,7 @@ export const Iconify: React.FC<IconifyProps> = (props) => {
         width="1.1rem"
         height="1.1rem"
         viewBox="0 0 24 24"
+        // eslint-disable-next-line react-dom/no-dangerously-set-innerhtml
         dangerouslySetInnerHTML={{ __html: props.icon.substring(4) }}
         className={mergeClassName("iconify inline-flex items-center justify-center align-middle text-center", props.className)}
       />

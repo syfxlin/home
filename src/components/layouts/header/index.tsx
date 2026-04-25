@@ -12,11 +12,11 @@ export const Header: React.FC = async () => {
   return (
     <header className="mb-4 flex flex-col items-center">
       <Image
-        className="mx-0 h-[7.5rem] w-[7.5rem] rounded-full [filter:var(--theme-image-filter)] transition-[filter] duration-300"
+        className="mx-0 h-30 w-30 rounded-full filter-(--theme-image-filter) transition-[filter] duration-300"
         src={author.avatar}
         alt={t("article.avatar")}
       />
-      <h1 className={`${caveat.className} mt-2 text-center text-[2.2rem] leading-[1.25] tracking-[0.05em] font-bold text-[var(--theme-text-title)]`}>
+      <h1 className={`${caveat.className} mt-2 text-center text-[2.2rem] leading-tight tracking-wider font-bold text-(--theme-text-title)`}>
         {author.fullname}
       </h1>
       <div className="text-center text-[0.9rem]">{author.description}</div>
