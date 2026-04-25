@@ -4,7 +4,7 @@ import { ErrorFound } from "../components/layouts/error-found";
 import { Link } from "../components/ui/link";
 
 export interface ErrorPageProps {
-  error: Error;
+  error: Error & { digest?: string };
   reset: () => void;
 }
 

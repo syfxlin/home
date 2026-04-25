@@ -10,13 +10,7 @@ const withBundleAnalyzer = createBundleAnalyzer({ enabled: !IS_DEV && COLINE_ANA
 /** @type {import("next").NextConfig} */
 const config = {
   output: "standalone",
-  experimental: {
-    appDir: true,
-    serverActions: true,
-    useDeploymentId: true,
-    useDeploymentIdServerActions: true,
-    serverComponentsExternalPackages: ["shikiji"],
-  },
+  serverExternalPackages: ["shikiji"],
   images: {
     remotePatterns: [
       {

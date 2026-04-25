@@ -1,8 +1,8 @@
-import React from "react";
+import { cache } from "react";
 import { reader } from "./reader";
 import { AuthorData, FooterData, HeaderData, SeoData } from "./types";
 
-const seo: () => Promise<SeoData> = React.cache(async () => {
+const seo: () => Promise<SeoData> = cache(async () => {
   const info = await reader.singletons.seo.read({ resolveLinkedFiles: true });
   if (!info) {
     throw new TypeError("No seo data configured.");
@@ -19,7 +19,7 @@ const seo: () => Promise<SeoData> = React.cache(async () => {
   };
 });
 
-const author: () => Promise<AuthorData> = React.cache(async () => {
+const author: () => Promise<AuthorData> = cache(async () => {
   const info = await reader.singletons.author.read({ resolveLinkedFiles: true });
   if (!info) {
     throw new TypeError("No author data configured.");
@@ -34,7 +34,7 @@ const author: () => Promise<AuthorData> = React.cache(async () => {
   };
 });
 
-const header: () => Promise<HeaderData> = React.cache(async () => {
+const header: () => Promise<HeaderData> = cache(async () => {
   const info = await reader.singletons.header.read({ resolveLinkedFiles: true });
   if (!info) {
     return { main: [] };
@@ -42,7 +42,7 @@ const header: () => Promise<HeaderData> = React.cache(async () => {
   return info as HeaderData;
 });
 
-const footer: () => Promise<FooterData> = React.cache(async () => {
+const footer: () => Promise<FooterData> = cache(async () => {
   const info = await reader.singletons.footer.read({ resolveLinkedFiles: true });
   if (!info) {
     return { main: [] };
