@@ -1,6 +1,7 @@
-import React, { ReactNode } from "react";
-import { Link } from "../../ui/link";
+import * as React from "react";
+import { ReactNode } from "react";
 import { t } from "../../../locales";
+import { Link } from "../../ui/link";
 import * as styles from "./styles.css";
 
 export interface ErrorFoundProps {

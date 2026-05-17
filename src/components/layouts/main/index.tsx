@@ -1,4 +1,5 @@
-import React, { PropsWithChildren } from "react";
+import * as React from "react";
+import { PropsWithChildren } from "react";
 import * as styles from "./styles.css";
 
 export type MainProps = PropsWithChildren<object>;

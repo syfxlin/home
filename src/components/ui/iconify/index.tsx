@@ -1,5 +1,6 @@
-import React from "react";
+/* eslint-disable react-dom/no-dangerously-set-innerhtml */
 import { cx } from "@syfxlin/reve";
+import * as React from "react";
 import { iconify } from "./query";
 
 export interface IconifyProps {

@@ -5,4 +5,5 @@ export default config({
   react: true,
   typescript: true,
   formatters: true,
+  tailwindcss: false,
 });

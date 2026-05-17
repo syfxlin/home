@@ -1,13 +1,14 @@
 "use client";
-import React, { HTMLAttributes, forwardRef, useMemo, useRef } from "react";
-import NImage from "next/image";
 import { cx, sx } from "@syfxlin/reve";
 import mediumZoom, { Zoom } from "medium-zoom";
+import NImage from "next/image";
+import * as React from "react";
+import { forwardRef, HTMLAttributes, useMemo, useRef } from "react";
 import { breakpoints } from "../../../theme/tokens";
 import * as styles from "./styles.css";
 
 function parse(src: string, alt?: string) {
-  const exec = /\.(\d+)x(\d+)(\.\w+)$/.exec(src);
+  const exec = /\.(\d+)x(\d+)\.\w+$/.exec(src);
   if (exec) {
     const width = Number.parseInt(exec[1]);
     const height = Number.parseInt(exec[2]);

@@ -1,7 +1,7 @@
-import React from "react";
+import * as React from "react";
+import { fetcher } from "../../../contents";
 import { Divider } from "../../ui/divider";
 import { Link } from "../../ui/link";
-import { fetcher } from "../../../contents";
 import * as styles from "./styles.css";
 
 export const Footer: React.FC = async () => {
@@ -19,6 +19,7 @@ export const Footer: React.FC = async () => {
         ))}
       </p>
       <p>
+        {/* eslint-disable-next-line react/purity */}
         Copyright © {seo.birthday.getFullYear()}-{new Date().getFullYear()} {author.fullname}
       </p>
       <p>

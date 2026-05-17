@@ -1,5 +1,5 @@
-import { createVar } from "@vanilla-extract/css";
 import { styled } from "@syfxlin/reve";
+import { createVar } from "@vanilla-extract/css";
 
 export const ratio = createVar();
 

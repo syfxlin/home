@@ -1,8 +1,9 @@
 "use client";
-import React, { AnchorHTMLAttributes, ButtonHTMLAttributes, forwardRef } from "react";
+import { cx } from "@syfxlin/reve";
 import Tippy, { TippyProps } from "@tippyjs/react";
 import Link, { LinkProps } from "next/link";
-import { cx } from "@syfxlin/reve";
+import * as React from "react";
+import { AnchorHTMLAttributes, ButtonHTMLAttributes, forwardRef } from "react";
 import * as styles from "./styles.css";
 
 export type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
@@ -29,7 +30,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(({ tooltip, uns
 
 export const LinkButton = forwardRef<HTMLAnchorElement, LinkButtonProps>(
   ({ tooltip, unstyled, href, ...props }, ref) => {
-    if (typeof href === "string" && /^(https?:)?\/\/|^#|\.[\da-z]+$/i.test(href)) {
+    if (typeof href === "string" && /^(?:https?:)?\/\/|^#|\.[\da-z]+$/i.test(href)) {
       const element = (
         <a {...props} className={cx(props.className, !unstyled && styles.button)} href={href} ref={ref} />
       );

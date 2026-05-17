@@ -1,6 +1,7 @@
 "use client";
-import React, { useEffect, useRef } from "react";
 import { useTheme } from "next-themes";
+import * as React from "react";
+import { useEffect, useRef } from "react";
 import { render } from "../../../utils/canvas";
 import * as styles from "./styles.css";
 

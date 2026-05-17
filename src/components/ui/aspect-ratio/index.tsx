@@ -1,6 +1,7 @@
 "use client";
-import React, { HTMLAttributes, forwardRef } from "react";
 import { cx, sx } from "@syfxlin/reve";
+import * as React from "react";
+import { forwardRef, HTMLAttributes } from "react";
 import * as styles from "./styles.css";
 
 export type AspectRatioProps = HTMLAttributes<HTMLDivElement> & {

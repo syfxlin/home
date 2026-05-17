@@ -1,6 +1,7 @@
+/* eslint-disable react-dom/no-dangerously-set-innerhtml */
 "use client";
-import React from "react";
 import { cx } from "@syfxlin/reve";
+import * as React from "react";
 
 export interface IconifyProps {
   icon: string;
