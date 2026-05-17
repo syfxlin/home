@@ -6,7 +6,7 @@ import { Link } from "../../ui/link";
 export const Footer: React.FC = async () => {
   const [seo, author, footer] = await Promise.all([fetcher.seo(), fetcher.author(), fetcher.footer()]);
   return (
-    <footer className="max-w-content [&_p]:text-text-description [&_span]:text-text-description relative mx-auto flex w-full flex-col items-center px-0 py-5 text-center [&_a]:underline [&_p]:m-0.5 [&_p]:text-[0.875rem] [&_span]:text-[0.875rem]">
+    <footer className="relative mx-auto flex w-full max-w-content flex-col items-center px-0 py-5 text-center [&_a]:underline [&_p]:m-0.5 [&_p]:text-[0.875rem] [&_p]:text-text-description [&_span]:text-[0.875rem] [&_span]:text-text-description">
       <p>
         {footer.main.map((item, index) => (
           <React.Fragment key={item.link}>

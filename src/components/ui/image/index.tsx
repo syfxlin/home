@@ -66,7 +66,7 @@ export function Image({ src, alt, zoom, ref, ...props }: ImageProps) {
         sizes={parsed.sizes}
         width={parsed.width}
         height={parsed.height}
-        className="size-full object-cover transition-[filter] duration-300 ease-out [filter:none] [&&[loading='lazy'][style*='background-image']]:blur"
+        className="size-full object-cover [filter:none] transition-[filter] duration-300 ease-out [&&[loading='lazy'][style*='background-image']]:blur"
         placeholder="data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 160 160'%3E%3Cfilter id='b' color-interpolation-filters='sRGB'%3E%3CfeGaussianBlur stdDeviation='20'/%3E%3CfeColorMatrix values='1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 100 -1' result='s'/%3E%3CfeFlood x='0' y='0' width='100%25' height='100%25'/%3E%3CfeComposite operator='out' in='s'/%3E%3CfeComposite in2='SourceGraphic'/%3E%3CfeGaussianBlur stdDeviation='20'/%3E%3C/filter%3E%3Cimage width='100%25' height='100%25' x='0' y='0' preserveAspectRatio='none' style='filter: url(%23b);' href='data:image/gif;base64,R0lGODlhAQABAIAAAMLCwgAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=='/%3E%3C/svg%3E"
         ref={(node) => {
           if (zoom) {

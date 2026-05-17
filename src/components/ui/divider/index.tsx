@@ -6,7 +6,7 @@ export interface DividerProps {
 }
 
 export const Divider: React.FC<DividerProps> = ({ orientation }) => {
-  const span = <span className="bg-text-paragraph mx-2 inline-block size-[0.2rem] rounded-full text-center align-middle opacity-70" />;
+  const span = <span className="mx-2 inline-block size-[0.2rem] rounded-full bg-text-paragraph text-center align-middle opacity-70" />;
   return orientation === "vertical" ?
       (
         span

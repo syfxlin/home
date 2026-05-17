@@ -31,13 +31,14 @@
     "@iconify/json": "^2.2.474",
     "@next/bundle-analyzer": "^16.2.6",
     "@syfxlin/eslint-config": "^1.2.1",
+    "@tailwindcss/postcss": "^4.3.0",
     "@types/node": "^25.8.0",
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
-    "autoprefixer": "^10.5.0",
     "eslint": "^10.4.0",
+    "eslint-plugin-tailwindcss": "4.0.0-alpha.2",
     "postcss": "^8.5.14",
-    "tailwindcss": "^3.4.19",
+    "tailwindcss": "^4.3.0",
     "typescript": "^6.0.3"
   }
 }
