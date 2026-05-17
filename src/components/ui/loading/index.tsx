@@ -1,11 +1,10 @@
 "use client";
 import * as React from "react";
-import * as styles from "./styles.css";
 
 export const Loading: React.FC = () => {
   return (
-    <div className={styles.container}>
-      <svg viewBox="0 0 135 140" xmlns="http://www.w3.org/2000/svg" className={styles.svg}>
+    <div className="flex size-full items-center justify-center p-6">
+      <svg viewBox="0 0 135 140" xmlns="http://www.w3.org/2000/svg" className="fill-text-primary text-text-primary size-8">
         <rect y="10" width="15" height="120" rx="6">
           <animate
             attributeName="height"

@@ -6,17 +6,16 @@
   "scripts": {
     "dev": "next dev --webpack",
     "build": "next build --webpack",
-    "start": "next start"
+    "start": "next start",
+    "lint": "eslint --fix src"
   },
   "dependencies": {
     "@iconify/utils": "^3.1.0",
     "@keystatic/core": "^0.5.50",
     "@keystatic/next": "^5.0.4",
-    "@radix-ui/colors": "^3.0.0",
     "@syfxlin/reks": "^1.0.4",
-    "@syfxlin/reve": "^1.0.6",
     "@tippyjs/react": "^4.2.6",
-    "@vanilla-extract/css": "^1.20.1",
+    "clsx": "^2.1.1",
     "medium-zoom": "^1.1.0",
     "next": "^16.2.4",
     "next-pwa": "^5.6.0",
@@ -35,8 +34,10 @@
     "@types/node": "^25.6.0",
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
-    "@vanilla-extract/next-plugin": "^2.5.2",
+    "autoprefixer": "^10.5.0",
     "eslint": "^10.2.1",
+    "postcss": "^8.5.14",
+    "tailwindcss": "^3.4.19",
     "typescript": "^6.0.3"
   }
 }

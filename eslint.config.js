@@ -5,5 +5,8 @@ export default config({
   react: true,
   typescript: true,
   formatters: true,
-  tailwindcss: false,
+  tailwindcss: true,
+  rules: {
+    "style/quotes": ["error", "double", { avoidEscape: true, allowTemplateLiterals: "always" }],
+  },
 });

@@ -4,5 +4,5 @@ import * as React from "react";
 import { PropsWithChildren } from "react";
 
 export const Providers: React.FC<PropsWithChildren> = ({ children }) => {
-  return <ThemeProvider>{children}</ThemeProvider>;
+  return <ThemeProvider attribute="data-theme">{children}</ThemeProvider>;
 };
