@@ -9,6 +9,7 @@ const withBundleAnalyzer = createBundleAnalyzer({ enabled: !IS_DEV && COLINE_ANA
 const config = {
   output: "standalone",
   serverExternalPackages: ["shikiji"],
+  turbopack: {},
   images: {
     remotePatterns: [
       {

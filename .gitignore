@@ -251,3 +251,6 @@ next-env.d.ts
 # content
 /public/sw.js*
 /public/workbox-*.js*
+
+### AI template
+.codex/

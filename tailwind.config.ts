@@ -1,5 +1,4 @@
 import type { Config } from "tailwindcss";
-import { fontFamily } from "tailwindcss/defaultTheme";
 import { breakpoints } from "./src/theme/tokens";
 
 const config: Config = {
@@ -42,10 +41,10 @@ const config: Config = {
         },
       },
       fontFamily: {
-        sans: ["var(--font-sans)", ...fontFamily.sans],
-        serif: ["var(--font-serif)", ...fontFamily.serif],
-        mono: ["var(--font-mono)", ...fontFamily.mono],
-        display: ["var(--font-display)", "cursive"],
+        sans: "var(--font-sans)",
+        serif: "var(--font-serif)",
+        mono: "var(--font-mono)",
+        display: "var(--font-display)",
       },
       boxShadow: {
         soft: "0 1px 3px rgba(0, 0, 0, 0.05), 0 1px 2px rgba(0, 0, 0, 0.1)",
