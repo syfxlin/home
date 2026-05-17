@@ -34,7 +34,6 @@
     ".next/dev/types/**/*.ts"
   ],
   "exclude": [
-    "node_modules",
-    "depker.config.ts"
+    "node_modules"
   ]
 }

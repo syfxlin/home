@@ -1,0 +1,10 @@
+shellEmulator: true
+trustPolicy: no-downgrade
+trustPolicyExclude:
+  - semver@6.3.1
+  - rollup@2.80.0
+allowBuilds:
+  "@swc/core": true
+  esbuild: true
+packages:
+  - .
