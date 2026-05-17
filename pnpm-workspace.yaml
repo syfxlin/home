@@ -6,3 +6,5 @@ trustPolicyExclude:
 allowBuilds:
   "@swc/core": true
   esbuild: true
+packages:
+  - .
