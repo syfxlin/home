@@ -24,7 +24,7 @@
     "nextjs-toploader": "^3.9.17",
     "react": "^19.2.6",
     "react-dom": "^19.2.6",
-    "sharp": "^0.34.5",
+    "sharp": "^0.35.0",
     "tippy.js": "^6.3.7"
   },
   "devDependencies": {
